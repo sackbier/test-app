@@ -1,0 +1,27 @@
+{% extends 'Drone_Rental/base_file.html' %}
+
+{% block title %}<h1>Drone Index</h1>{% endblock title %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Drone Model</th>
+                <th>Camera</th>
+                <th>Price</th>
+                <th>View</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for drone in drone_list %}
+            <tr>
+                <td>{{ drone.drone_model }}</td>
+                <td>{{ drone.camera }}</td>
+                <td>{{ drone.price }}</td>
+                <td><a class="btn btn-default" role="button" href="{% url 'drone_detail' drone.pk %}"><span class="glyphicon glyphicon-eye-open"></span> View</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}

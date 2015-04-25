@@ -1,0 +1,25 @@
+{% extends 'Drone_Rental/base_file.html' %}
+
+{% block title %}<h1>Edit: {{ drone.drone_model }}</h1>{% endblock title %}
+
+{% block content %}
+
+<form action="{% url 'drone_edit' drone.pk %}" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="fieldWrapper">
+        {% if field.errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ field.errors }}
+            </div>
+        {% endif %}
+        {{ field.label_tag }} {{ field }}
+    </div>
+    {% endfor %}
+    <input type="submit" value="Submit" />
+</form>
+
+    <p><small><a href="{{ request.META.HTTP_REFERER }}">back</a></small></p>
+
+
+{% endblock content %}

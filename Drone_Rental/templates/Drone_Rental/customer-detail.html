@@ -1,0 +1,13 @@
+{% extends 'Drone_Rental/base_file.html' %}
+
+{% block title %}<h1>Customer Detail</h1>{% endblock title %}
+
+{% block content %}
+
+    <p><strong>{{ customer.first_name }} {{ customer.last_name }}</strong></p>
+    <p>{{ customer.email }}</p>
+    <p>{{ customer.phone }}</p>
+    <p>{{ customer.street }}</p>
+    <p>{{ customer.zipcode }} {{ customer.city }}</p>
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'Drone_Rental/base_file.html' %}
+
+{% block title %}<h1>{{ object.drone_model }}</h1>{% endblock %}
+
+{% block content %}
+
+    <p>{{ object.description }}</p>
+    <p>Camera: {{ object.camera }}</p>
+    <p>Price: {{ object.price }}</p>
+
+    <p>
+    <a href="{% url 'drone_edit' object.pk %}"><span class="glyphicon glyphicon-wrench"></span> Edit this Drone</a></p>
+    <p><a href="{{ request.META.HTTP_REFERER }}">back</a></p>
+
+{% endblock %}

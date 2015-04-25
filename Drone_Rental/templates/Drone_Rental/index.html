@@ -1,0 +1,27 @@
+{% extends 'Drone_Rental/base_file.html' %}
+
+{% block title %}<h1>Drone Rental Overview</h1>{% endblock title %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Customer</th>
+                <th>View</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for case in case_list %}
+            <tr>
+                <td>{{ case.start_date|date:'d.m.Y - H:i' }}</td>
+                <td>{{ case.end_date|date:'d.m.Y - H:i' }}</td>
+                <td>{{ case.customer.last_name }}</td>
+                <td><a href="{% url 'detail' case.pk %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock content %}

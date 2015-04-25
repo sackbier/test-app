@@ -1,0 +1,13 @@
+{% extends 'Drone_Rental/base_file.html' %}
+
+{% block title %}<h1>Case Detail</h1>{% endblock title %}
+
+{% block content %}
+    <p>Start Date: {{ object.start_date|date:'d.m.Y - H:i' }}</p>
+    <p>End Date: {{ object.end_date|date:'d.m.Y - H:i' }}</p>
+    <p>Customer: <a href="{% url 'customer_detail' object.customer.pk %}">{{ object.customer.first_name }} {{ object.customer.last_name }}</a></p>
+    <p>Drone: <a href="{% url 'drone_detail' object.drone.pk %}">{{ object.drone.drone_model }}</a></p>
+    <p>Price: {{ object.price }}EUR</p>
+    <p>Status: {{ object.get_status_display }}</p>
+
+{% endblock content %}
