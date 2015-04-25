@@ -1,0 +1,2 @@
+virtualenv==12.1.1
+wsgiref==0.1.2
